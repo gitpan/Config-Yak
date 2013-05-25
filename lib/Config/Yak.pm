@@ -1,6 +1,6 @@
 package Config::Yak;
 {
-  $Config::Yak::VERSION = '0.22';
+  $Config::Yak::VERSION = '0.23';
 }
 BEGIN {
   $Config::Yak::AUTHORITY = 'cpan:TEX';
@@ -12,6 +12,7 @@ use mro 'c3';
 use feature ':5.10';
 
 use Moose;
+use Moose::Util::TypeConstraints;
 use namespace::autoclean;
 
 use IO::Handle;
@@ -22,12 +23,21 @@ use Config::Tiny;
 use Hash::Merge;
 use Data::Dumper;
 use Try::Tiny;
+use Data::Structure::Util qw();
 
-extends 'Data::Tree';
+subtype 'ArrayRefOfStr',
+     as 'ArrayRef[Str]';
+
+coerce 'ArrayRefOfStr',
+    from 'Str',
+    via { [ $_ ] };
+
+extends 'Data::Tree' => { -version => 0.16 };
 
 has 'locations' => (
     'is'       => 'rw',
-    'isa'      => 'ArrayRef[Str]',
+    'isa'      => 'ArrayRefOfStr',
+    'coerce'   => 1,
     'required' => 1,
 );
 
@@ -157,8 +167,9 @@ sub _load_legacy_config {
     foreach my $file ( @{$files_ref} ) {
         if ( -e $file ) {
             try {
-                my $Config = Config::Tiny::->new($file);
+                my $Config = Config::Tiny::->read($file);
                 print '_load_legacy_config - Loaded ' . $file . "\n" if $self->debug();
+                Data::Structure::Util::unbless($Config);
                 $cfg = Hash::Merge::merge( $cfg, $Config );
                 ## no critic (ProhibitMagicNumbers)
                 my $last_ts = ( stat($file) )[9];

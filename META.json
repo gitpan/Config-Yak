@@ -4,7 +4,7 @@
       "Dominik Schulz <dominik.schulz@gauner.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -27,9 +27,11 @@
       "runtime" : {
          "requires" : {
             "Config::Any" : "0",
+            "Config::General" : "0",
             "Config::Tiny" : "0",
             "Data::Dumper" : "0",
-            "Data::Tree" : "0",
+            "Data::Structure::Util" : "0",
+            "Data::Tree" : "0.16",
             "English" : "0",
             "Hash::Merge" : "0",
             "IO::Handle" : "0",
@@ -37,6 +39,7 @@
             "Module::Pluggable::Object" : "0",
             "Moose" : "0",
             "Moose::Role" : "0",
+            "Moose::Util::TypeConstraints" : "0",
             "Scalar::Util" : "0",
             "Try::Tiny" : "0",
             "autodie" : "0",
@@ -67,7 +70,7 @@
          "web" : "https://github.com/gittex/Config-Yak"
       }
    },
-   "version" : "0.22",
+   "version" : "0.23",
    "x_authority" : "cpan:TEX"
 }
 

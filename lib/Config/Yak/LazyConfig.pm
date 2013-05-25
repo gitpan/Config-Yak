@@ -1,6 +1,6 @@
 package Config::Yak::LazyConfig;
 {
-  $Config::Yak::LazyConfig::VERSION = '0.22';
+  $Config::Yak::LazyConfig::VERSION = '0.23';
 }
 BEGIN {
   $Config::Yak::LazyConfig::AUTHORITY = 'cpan:TEX';

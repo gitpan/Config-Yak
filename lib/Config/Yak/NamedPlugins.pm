@@ -1,6 +1,6 @@
 package Config::Yak::NamedPlugins;
 {
-  $Config::Yak::NamedPlugins::VERSION = '0.22';
+  $Config::Yak::NamedPlugins::VERSION = '0.23';
 }
 BEGIN {
   $Config::Yak::NamedPlugins::AUTHORITY = 'cpan:TEX';

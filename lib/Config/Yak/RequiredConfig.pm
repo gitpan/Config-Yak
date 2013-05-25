@@ -1,6 +1,6 @@
 package Config::Yak::RequiredConfig;
 {
-  $Config::Yak::RequiredConfig::VERSION = '0.22';
+  $Config::Yak::RequiredConfig::VERSION = '0.23';
 }
 BEGIN {
   $Config::Yak::RequiredConfig::AUTHORITY = 'cpan:TEX';

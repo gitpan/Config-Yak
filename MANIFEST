@@ -14,6 +14,7 @@ lib/Config/Yak/NamedPlugins.pm
 lib/Config/Yak/OrderedPlugins.pm
 lib/Config/Yak/RequiredConfig.pm
 t/00-load.t
+t/coerce.t
 t/conf/conf.d/hash.conf
 t/conf/test001.conf
 t/conf/test002.conf

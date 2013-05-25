@@ -1,6 +1,6 @@
 package Config::Yak::OrderedPlugins;
 {
-  $Config::Yak::OrderedPlugins::VERSION = '0.22';
+  $Config::Yak::OrderedPlugins::VERSION = '0.23';
 }
 BEGIN {
   $Config::Yak::OrderedPlugins::AUTHORITY = 'cpan:TEX';
